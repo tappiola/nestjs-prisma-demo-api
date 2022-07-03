@@ -1,0 +1,26 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Mutation {
+  addPanda(age: Float!, id: Float!, name: String!, softness: Float!): StatusResp!
+}
+
+type Panda {
+  age: Int
+  id: Int!
+  name: String!
+  softness: Int!
+}
+
+type Query {
+  """Panda query desc"""
+  panda(id: Int!): Panda!
+
+  """Pandas query desc"""
+  pandas: [Panda!]!
+}
+
+type StatusResp {
+  status: String!
+}
