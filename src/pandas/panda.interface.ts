@@ -1,5 +1,5 @@
 export interface Panda {
-  id: number;
+  id?: number;
   name: string;
   age: number;
   softness: number;

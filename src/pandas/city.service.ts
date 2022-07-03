@@ -1,29 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { City } from './city.interface';
-import { Status } from './panda.types';
+import { DbService } from './db.service';
 
 @Injectable()
 export class CitiesService {
+  constructor(private dbService: DbService) {}
+
   private readonly cities: City[] = [
     { id: 1, name: 'London', pandaId: 1 },
     { id: 2, name: 'Edinburgh', pandaId: 2 },
     { id: 3, name: 'Berlin', pandaId: 2 },
   ];
 
-  create(panda: City) {
-    this.cities.push(panda);
-    return { status: Status.OK };
-  }
-
-  findAll(): City[] {
-    return this.cities;
-  }
-
-  find(id: number): City[] {
-    return this.cities.filter(({ pandaId }) => pandaId === id);
-  }
-
-  getOne(id: number): City {
-    return this.cities.find((p) => p.id === id);
+  find(id: number): Promise<City[]> {
+    // return this.cities.filter(({ pandaId }) => pandaId === id);
+    return this.dbService.city.findMany({ where: { pandaId: id } });
   }
 }

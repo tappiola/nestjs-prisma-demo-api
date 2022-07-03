@@ -5,11 +5,10 @@
 type City {
   id: Int!
   name: String!
-  pandaId: Int!
 }
 
 type Mutation {
-  addPanda(age: Float!, id: Float!, name: String!, softness: Float!): StatusResp!
+  addPanda(age: Float!, name: String!, softness: Float!): StatusResp!
 }
 
 type Panda {

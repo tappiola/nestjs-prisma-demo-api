@@ -7,7 +7,4 @@ export class City {
 
   @Field()
   name: string;
-
-  @Field((type) => Int)
-  pandaId: number;
 }
