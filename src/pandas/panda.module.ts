@@ -4,6 +4,7 @@ import { PandasService } from './panda.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
+import { CitiesService } from './city.service';
 
 @Module({
   imports: [
@@ -16,6 +17,6 @@ import { join } from 'path';
     }),
   ],
   controllers: [],
-  providers: [PandasService, PandasResolver],
+  providers: [PandasService, PandasResolver, CitiesService],
 })
 export class PandasModule {}

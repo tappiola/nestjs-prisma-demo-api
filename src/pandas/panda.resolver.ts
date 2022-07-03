@@ -8,14 +8,17 @@ import {
   Mutation,
 } from '@nestjs/graphql';
 import { PandasService } from './panda.service';
+import { CitiesService } from './city.service';
 import { Panda } from './panda.model';
-import { Status, StatusResp, StatusResponse } from './panda.types';
+import { StatusResp } from './panda.types';
 import { AddPandaArgs } from './panda.args';
+import { City } from './city.model';
 
 @Resolver((of) => Panda)
 export class PandasResolver {
   constructor(
-    private pandasService: PandasService, // private citiesService: CitiesService,
+    private pandasService: PandasService,
+    private citiesService: CitiesService,
   ) {}
 
   @Query((returns) => Panda, { name: 'panda', description: 'Panda query desc' })
@@ -36,9 +39,9 @@ export class PandasResolver {
     return this.pandasService.create(args);
   }
 
-  // @ResolveField()
-  // async posts(@Parent() panda: Panda) {
-  //   const { id } = panda;
-  //   return this.citiesService.findOne(id);
-  // }
+  @ResolveField((returns) => [City])
+  async cities(@Parent() panda: Panda) {
+    // return this.citiesService.findAll();
+    return this.citiesService.find(panda.id);
+  }
 }

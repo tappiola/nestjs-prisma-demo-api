@@ -2,12 +2,19 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type City {
+  id: Int!
+  name: String!
+  pandaId: Int!
+}
+
 type Mutation {
   addPanda(age: Float!, id: Float!, name: String!, softness: Float!): StatusResp!
 }
 
 type Panda {
   age: Int
+  cities: [City!]!
   id: Int!
   name: String!
   softness: Int!

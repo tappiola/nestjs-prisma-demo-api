@@ -1,4 +1,4 @@
-import { Field, Float, Int, ObjectType } from '@nestjs/graphql';
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class City {
@@ -8,9 +8,6 @@ export class City {
   @Field()
   name: string;
 
-  @Field((type) => Float)
-  latitude: number;
-
-  @Field((type) => Float)
-  longitude: number;
+  @Field((type) => Int)
+  pandaId: number;
 }
