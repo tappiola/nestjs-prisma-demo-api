@@ -41,7 +41,6 @@ export class PandasResolver {
 
   @ResolveField((returns) => [City])
   async cities(@Parent() panda: Panda) {
-    // return this.citiesService.findAll();
     return this.citiesService.find(panda.id);
   }
 }

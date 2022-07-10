@@ -1,5 +1,4 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { City } from './city.model';
 
 @ObjectType()
 export class Panda {
@@ -14,7 +13,4 @@ export class Panda {
 
   @Field((type) => Int)
   softness: number;
-
-  // @Field((type) => City)
-  // location: City;
 }

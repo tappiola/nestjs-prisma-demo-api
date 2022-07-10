@@ -13,7 +13,6 @@ export class CitiesService {
   ];
 
   find(id: number): Promise<City[]> {
-    // return this.cities.filter(({ pandaId }) => pandaId === id);
     return this.dbService.city.findMany({ where: { pandaId: id } });
   }
 }

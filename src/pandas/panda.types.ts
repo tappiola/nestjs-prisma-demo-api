@@ -5,10 +5,6 @@ export enum Status {
   FAIL = 'FAIL',
 }
 
-export type StatusResponse = {
-  status: Status;
-};
-
 @ObjectType()
 export class StatusResp {
   @Field()

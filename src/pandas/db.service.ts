@@ -7,12 +7,6 @@ import {
 } from '@nestjs/common';
 import { PrismaClient } from '.prisma/client';
 
-// Extracted from Prisma's $transaction typing
-export type TransactionClient = Omit<
-  PrismaClient,
-  '$connect' | '$disconnect' | '$on' | '$transaction' | '$use'
->;
-
 export const configureForPrisma = (
   app: INestApplication | INestApplicationContext,
 ) => {
@@ -33,7 +27,6 @@ export class DbService
     await this.$disconnect();
   }
 
-  // See the note about enableShutdownHooks at https://docs.nestjs.com/recipes/prisma#issues-with-enableshutdownhooks
   async enableShutdownHooks(app: INestApplication | INestApplicationContext) {
     this.$on('beforeExit', async () => {
       await app.close();

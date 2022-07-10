@@ -1,21 +1,6 @@
-import {
-  Controller,
-  Get,
-  Req,
-  Post,
-  Headers,
-  Param,
-  Body,
-} from '@nestjs/common';
-import { Request } from 'express';
+import { Controller, Get, Post, Param, Body } from '@nestjs/common';
 import { KoalasService } from './koalas.service';
 import { Koala } from './koalas.interface';
-
-export class CreateKoalaDto {
-  name: string;
-  age: number;
-  softness: number;
-}
 
 @Controller('koalas')
 export class KoalasController {
@@ -35,12 +20,6 @@ export class KoalasController {
   getKoala(@Param('id') id): Koala {
     return this.koalaService.getOne(id);
   }
-
-  // or
-  // @Get(':id')
-  // getKoala(@Param('id') id): string {
-  //   return `This action returns a #${id} koala`;
-  // }
 
   @Post()
   create(@Body() koala: Koala): string {
