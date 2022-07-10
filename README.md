@@ -25,7 +25,7 @@ Or in watch mode:
 
     npm run start:dev
 
-###Rest API endpoints:
+### Rest API endpoints:
 
 
     [Nest] 9169  - 07/10/2022, 2:49:26 PM     LOG [RouterExplorer] Mapped {/koalas, GET} route +1ms
@@ -34,6 +34,6 @@ Or in watch mode:
     [Nest] 9169  - 07/10/2022, 2:49:26 PM     LOG [RouterExplorer] Mapped {/koalas, POST} route +0ms
 
 
-###GraphQL schema:
+### GraphQL schema:
 
 ![plot](./assets/graphql.png)
